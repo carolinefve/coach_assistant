@@ -4,7 +4,7 @@ const exercises = [
     level: "Intermediate",
     sets: 3,
     reps: "8-15",
-    muscles: ["Chest", "Triceps", "Anterior Deltoid"],
+    muscles: ["Chest", "Triceps"],
     warning: "May cause wrist discomfort. Maintain neutral spine.",
     instruction: "Maintain proper form, control the movement",
   },

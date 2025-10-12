@@ -728,3 +728,17 @@
 .hidden {
   display: none;
 }
+
+.video-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111827;
+}
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
