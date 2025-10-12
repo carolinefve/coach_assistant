@@ -61,7 +61,8 @@ The backend manages AI interactions and stores data to create a **personalised a
 
 
 
-https://github.com/user-attachments/assets/473e6d6f-265c-4e6f-8bea-10f7331224aa
+<video src="https://github.com/user-attachments/assets/473e6d6f-265c-4e6f-8bea-10f7331224aa" controls="controls" style="max-width: 730px;">
+</video>
 
 
 
