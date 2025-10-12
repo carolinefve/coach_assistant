@@ -85,11 +85,6 @@ body {
   color: #111827;
 }
 
-.nav-btn.active {
-  background: #eff6ff;
-  color: #2563eb;
-}
-
 .nav-icon {
   width: 24px;
   height: 24px;
