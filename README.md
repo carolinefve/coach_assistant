@@ -78,4 +78,4 @@ The backend manages AI interactions and stores data to create a **personalised a
 
 - Integrate **video or camera features** for form correction
 - Develop a **mobile app** version
-- Partner with **fitness experts** to create specialised workout programmes
+- Partner with **fitness experts** to create specialised workout programmes.
