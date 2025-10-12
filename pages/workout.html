@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>HoloCoach - Workout</title>
+    <link
+      rel="stylesheet"
+      href="../css/pages/workout.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../css/index.css"
+    />
+    <script
+      src="../js/pages/workout.js"
+      defer
+    ></script>
+    <script
+      src="../js/main.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-title">Workout Session</h1>
+    </header>
+    <main class="main-content">
+      <div
+        class="live-session-indicator hidden"
+        id="liveIndicator"
+      >
+        <span class="live-dot"></span>
+        <span class="live-text">LIVE SESSION</span>
+      </div>
+      <div
+        id="initialStage"
+        class="stage"
+      >
+        <div class="workout-title-section">
+          <h2 class="workout-name">Push Day</h2>
+          <p class="workout-subtitle">Chest, Shoulders & Triceps</p>
+          <p class="workout-time">Estimated time: 15 min</p>
+        </div>
+        <button
+          class="btn-start-exercise"
+          onclick="startWorkout()"
+        >
+          <svg
+            width="24"
+            height="24"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <span>Start Exercise</span>
+        </button>
+        <div class="instructions-card">
+          <div class="instructions-header">
+            <svg
+              class="mic-icon"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"
+              />
+              <path
+                d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"
+              />
+            </svg>
+            <h3 class="instructions-title">Voice Commands</h3>
+          </div>
+          <ul class="instructions-list">
+            <li class="instruction-item">
+              <span class="command-badge">Skip</span
+              ><span class="command-text"
+                >Say "skip" to skip exercise instructions</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Adjust</span
+              ><span class="command-text"
+                >Say "adjust" to modify exercise or report a problem</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Break</span
+              ><span class="command-text"
+                >Say "break" to pause or stop workout</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge emergency">Emergency</span
+              ><span class="command-text"
+                >Say "emergency" to call for help</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        id="intensityStage"
+        class="stage hidden"
+      >
+        <div class="intensity-modal">
+          <h2>Start Exercise</h2>
+          <p>Would you like to lower the intensity or keep as it is?</p>
+          <div class="intensity-buttons">
+            <button
+              class="btn-easier"
+              onclick="handleIntensity(true)"
+            >
+              Lower it
+            </button>
+            <button
+              class="btn-go"
+              onclick="handleIntensity(false)"
+            >
+              Keep it
+            </button>
+          </div>
+        </div>
+        <div
+          class="instructions-card"
+          style="margin-top: 48px"
+        >
+          <div class="instructions-header">
+            <svg
+              class="mic-icon"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"
+              />
+              <path
+                d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"
+              />
+            </svg>
+            <h3 class="instructions-title">Voice Commands</h3>
+          </div>
+          <ul class="instructions-list">
+            <li class="instruction-item">
+              <span class="command-badge">Skip</span
+              ><span class="command-text"
+                >Say "skip" to skip exercise instructions</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Adjust</span
+              ><span class="command-text"
+                >Say "adjust" to modify exercise or report a problem</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Break</span
+              ><span class="command-text"
+                >Say "break" to pause or stop workout</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge emergency">Emergency</span
+              ><span class="command-text"
+                >Say "emergency" to call for help</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        id="planStage"
+        class="stage hidden"
+      >
+        <div class="plan-card">
+          <div class="plan-header">📋 Today's Workout Plan</div>
+          <p class="plan-description">
+            Today we're doing 1 exercise for upper body. Are you ready?
+          </p>
+          <div class="exercise-list">
+            <div class="exercise-item">
+              <h3>1. Push-Ups</h3>
+              <p>3 sets × 8-15 reps</p>
+            </div>
+          </div>
+        </div>
+        <div class="plan-buttons">
+          <button
+            class="btn-not-ready"
+            onclick="goBack()"
+          >
+            Not Ready Yet
+          </button>
+          <button
+            class="btn-ready"
+            onclick="startExercise()"
+          >
+            Yes, I'm Ready!
+          </button>
+        </div>
+        <div
+          class="instructions-card"
+          style="margin-top: 24px"
+        >
+          <div class="instructions-header">
+            <svg
+              class="mic-icon"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"
+              />
+              <path
+                d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"
+              />
+            </svg>
+            <h3 class="instructions-title">Voice Commands</h3>
+          </div>
+          <ul class="instructions-list">
+            <li class="instruction-item">
+              <span class="command-badge">Skip</span
+              ><span class="command-text"
+                >Say "skip" to skip exercise instructions</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Adjust</span
+              ><span class="command-text"
+                >Say "adjust" to modify exercise or report a problem</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Break</span
+              ><span class="command-text"
+                >Say "break" to pause or stop workout</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge emergency">Emergency</span
+              ><span class="command-text"
+                >Say "emergency" to call for help</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        id="exerciseStage"
+        class="stage hidden"
+      >
+        <div class="exercise-header">
+          <h2
+            class="exercise-title"
+            id="exerciseName"
+          >
+            Push-Ups
+          </h2>
+          <span
+            class="level-badge"
+            id="exerciseLevel"
+            >Intermediate</span
+          >
+        </div>
+        <div class="live-coach-card">
+          <div class="live-indicator-card"></div>
+          <div class="coach-header">
+            <svg
+              class="coach-icon"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"
+              />
+              <path
+                d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"
+              />
+            </svg>
+            <span class="coach-title">Coach (professional)</span>
+          </div>
+          <p
+            class="coach-instruction"
+            id="coachInstruction"
+          >
+            Maintain proper form, control the movement
+          </p>
+          <div class="target-muscles">Target Muscles:</div>
+          <div
+            class="muscle-tags"
+            id="muscleTags"
+          >
+            <span class="muscle-tag">Chest</span>
+            <span class="muscle-tag">Triceps</span>
+            <span class="muscle-tag">Anterior Deltoid</span>
+          </div>
+        </div>
+        <button
+          class="btn-check-form"
+          onclick="openFormCheck()"
+        >
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          Check Form
+        </button>
+        <div class="set-card">
+          <div class="set-header">
+            <span class="set-label">Current Set</span>
+            <span class="set-number"
+              ><span id="currentSet">1</span> /
+              <span id="totalSets">3</span></span
+            >
+          </div>
+          <div class="set-info">
+            <span class="target-reps-label">Target Reps</span>
+            <span
+              class="target-reps-value"
+              id="targetReps"
+              >8-15</span
+            >
+          </div>
+        </div>
+        <button
+          class="btn-start-set"
+          id="startSetBtn"
+          onclick="startSet()"
+        >
+          Start Set 1
+        </button>
+        <button
+          class="btn-complete-set hidden"
+          id="completeSetBtn"
+          onclick="completeSet()"
+        >
+          Complete Set 1
+        </button>
+
+        <div class="instructions-card">
+          <div class="instructions-header">
+            <svg
+              class="mic-icon"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"
+              />
+              <path
+                d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"
+              />
+            </svg>
+            <h3 class="instructions-title">Voice Commands</h3>
+          </div>
+          <ul class="instructions-list">
+            <li class="instruction-item">
+              <span class="command-badge">Skip</span
+              ><span class="command-text"
+                >Say "skip" to skip exercise instructions</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Adjust</span
+              ><span class="command-text"
+                >Say "adjust" to modify exercise or report a problem</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Break</span
+              ><span class="command-text"
+                >Say "break" to pause or stop workout</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge emergency">Emergency</span
+              ><span class="command-text"
+                >Say "emergency" to call for help</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        id="formCheckStage"
+        class="stage hidden"
+      >
+        <div class="form-check-container">
+          <h2
+            style="
+              font-size: 24px;
+              font-weight: 700;
+              margin-bottom: 24px;
+              color: #111827;
+            "
+          >
+            Form Check
+          </h2>
+          <div class="form-check-instructions">
+            <h3>📹 Recording Tips</h3>
+            <ul>
+              <li>Position camera to show your full body</li>
+              <li>Perform 3-5 reps with proper form</li>
+              <li>Keep movements slow and controlled</li>
+            </ul>
+          </div>
+          <div class="camera-view">
+            <svg
+              class="camera-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            <p class="camera-placeholder">Camera View</p>
+            <p style="color: #9ca3af; font-size: 14px">
+              Position yourself in frame
+            </p>
+            <div class="recording-indicator">
+              <span class="recording-dot"></span>
+              <span>Recording...</span>
+            </div>
+          </div>
+          <button
+            class="btn-stop-recording"
+            onclick="stopRecording()"
+          >
+            Stop Recording & Analyze
+          </button>
+          <button
+            class="btn-cancel-check"
+            onclick="cancelFormCheck()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div
+        id="formFeedbackStage"
+        class="stage hidden"
+      >
+        <div class="feedback-header">
+          <svg
+            class="feedback-icon"
+            fill="none"
+            stroke="#065f46"
+            viewBox="0 0 24 24"
+            stroke-width="3"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+              fill="#d1fae5"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12l2 2 4-4"
+            />
+          </svg>
+          <div class="feedback-title">Good Form!</div>
+          <div class="feedback-subtitle">
+            Your technique looks solid overall
+          </div>
+        </div>
+        <div class="feedback-card">
+          <div class="feedback-section">
+            <h3>✅ What You're Doing Well</h3>
+            <div class="feedback-item good">
+              <p>
+                <strong>Back Position:</strong> Your spine maintains a neutral
+                position throughout the movement
+              </p>
+            </div>
+            <div class="feedback-item good">
+              <p>
+                <strong>Range of Motion:</strong> Full extension and controlled
+                descent
+              </p>
+            </div>
+          </div>
+          <div class="feedback-section">
+            <h3>💡 Areas to Improve</h3>
+            <div class="feedback-item improve">
+              <p>
+                <strong>Elbow Position:</strong> Try keeping elbows at 45° angle
+                from body for better shoulder safety
+              </p>
+            </div>
+            <div class="feedback-item improve">
+              <p>
+                <strong>Tempo:</strong> Slow down the lowering phase to 2-3
+                seconds for better muscle engagement
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn-continue-workout"
+          onclick="continueWorkout()"
+        >
+          Continue Workout
+        </button>
+      </div>
+      <div
+        id="setCompletionStage"
+        class="stage hidden"
+      >
+        <div class="great-work-card">
+          <svg
+            class="checkmark-icon"
+            fill="none"
+            stroke="#065f46"
+            viewBox="0 0 24 24"
+            stroke-width="3"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+              fill="#d1fae5"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12l2 2 4-4"
+            />
+          </svg>
+          <div class="great-work-title">Great Work!</div>
+          <div class="great-work-subtitle">You completed all sets.</div>
+        </div>
+        <div class="muscle-selection">
+          <h3>📋 Where did you feel this exercise?</h3>
+          <div
+            class="muscle-buttons"
+            id="muscleSelection"
+          >
+            <button
+              class="muscle-btn"
+              onclick="toggleMuscle(this,'Chest')"
+            >
+              Chest
+            </button>
+            <button
+              class="muscle-btn"
+              onclick="toggleMuscle(this,'Triceps')"
+            >
+              Triceps
+            </button>
+            <button
+              class="muscle-btn"
+              onclick="toggleMuscle(this,'Anterior Deltoid')"
+            >
+              Anterior Deltoid
+            </button>
+          </div>
+        </div>
+        <button
+          class="btn-next-exercise"
+          onclick="nextExercise()"
+        >
+          Next Exercise
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+        <div class="instructions-card">
+          <div class="instructions-header">
+            <svg
+              class="mic-icon"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"
+              />
+              <path
+                d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"
+              />
+            </svg>
+            <h3 class="instructions-title">Voice Commands</h3>
+          </div>
+          <ul class="instructions-list">
+            <li class="instruction-item">
+              <span class="command-badge">Skip</span
+              ><span class="command-text"
+                >Say "skip" to skip exercise instructions</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Adjust</span
+              ><span class="command-text"
+                >Say "adjust" to modify exercise or report a problem</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge">Break</span
+              ><span class="command-text"
+                >Say "break" to pause or stop workout</span
+              >
+            </li>
+            <li class="instruction-item">
+              <span class="command-badge emergency">Emergency</span
+              ><span class="command-text"
+                >Say "emergency" to call for help</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        id="completeStage"
+        class="stage hidden"
+      >
+        <div class="completion-card">
+          <div class="completion-title">Workout Complete! 🎉</div>
+          <div class="completion-subtitle">Amazing effort today!</div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-title">Workout Summary</div>
+          <div class="summary-row">
+            <span class="summary-label">Total Time</span
+            ><span class="summary-value">15 min</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Exercises Completed</span
+            ><span class="summary-value">1 / 1</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Points Earned</span
+            ><span class="summary-value highlight">+50 pts 🔥</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Streak</span
+            ><span class="summary-value streak">22 days 🔥</span>
+          </div>
+        </div>
+        <div class="tomorrow-card">
+          <div class="tomorrow-title">Tomorrow's Workout</div>
+          <div class="tomorrow-subtitle">Lower Body Strength - 40 min</div>
+        </div>
+        <button
+          class="btn-home"
+          onclick="goHome()"
+        >
+          Back to Home
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

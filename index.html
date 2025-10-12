@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>HoloCoach - Login</title>
+    <link
+      rel="stylesheet"
+      href="./css/pages/login.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/index.css"
+    />
+    <script
+      src="./js/pages/login.js"
+      defer
+    ></script>
+    <script
+      src="./js/main.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="header">
+      <button
+        class="back-btn"
+        id="backBtn"
+        onclick="handleBack()"
+        style="display: none"
+      >
+        ◀ <span id="backText">Back</span>
+      </button>
+      <div
+        class="logo-header"
+        id="logoHeader"
+      ></div>
+    </div>
+
+    <div
+      class="progress-bar"
+      id="progressBar"
+    >
+      <div
+        class="progress-segment filled"
+        id="progress1"
+      ></div>
+      <div
+        class="progress-segment"
+        id="progress2"
+      ></div>
+      <div
+        class="progress-segment"
+        id="progress3"
+      ></div>
+      <div
+        class="progress-segment"
+        id="progress4"
+      ></div>
+      <div
+        class="progress-segment"
+        id="progress5"
+      ></div>
+    </div>
+
+    <div class="container">
+      <div class="phone-mockup"></div>
+
+      <div class="content">
+        <!-- Welcome Screen -->
+        <div
+          id="welcomeScreen"
+          class="screen active"
+        >
+          <div class="logo">
+            <img
+              src="./images/logo.png"
+              alt="logo"
+            />
+          </div>
+          <h1 class="tagline">Train Smarter.<br />Live Better.</h1>
+          <p class="subtitle">Your virtual coach at anytime and anywhere</p>
+        </div>
+
+        <!-- Login Form -->
+        <div
+          id="loginForm"
+          class="screen"
+        >
+          <div class="logo">HOLOCOACH</div>
+          <div class="form-container active">
+            <div class="input-group">
+              <label>Email</label>
+              <input
+                type="email"
+                id="loginEmail"
+                placeholder="your@email.com"
+              />
+            </div>
+            <div class="input-group">
+              <label>Password</label>
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter your password"
+              />
+            </div>
+            <div class="forgot-password">
+              <a href="#">Forgot Password?</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 1: Main Goal -->
+        <div
+          id="question1"
+          class="screen"
+        >
+          <h2 class="question-title">What's your main goal?</h2>
+          <p class="question-subtitle">We'll customize your plan to match.</p>
+          <div class="options-list">
+            <button
+              class="option-btn"
+              onclick="selectOption('question1', 'gain-muscle', this)"
+            >
+              <span class="option-icon">💪</span>
+              <span>Gain muscle</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question1', 'lose-weight', this)"
+            >
+              <span class="option-icon">⚖️</span>
+              <span>Lose weight</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question1', 'lose-fat-gain-muscle', this)"
+            >
+              <span class="option-icon">🔥</span>
+              <span>Lose fat and gain muscle</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question1', 'improve-fitness', this)"
+            >
+              <span class="option-icon">🏃</span>
+              <span>Improve overall fitness</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 2: Training Split -->
+        <div
+          id="question2"
+          class="screen"
+        >
+          <h2 class="question-title">
+            Do you have a preferred training split?
+          </h2>
+          <p class="question-subtitle">
+            Structured training ensures optimal recovery and progress.
+          </p>
+          <div class="options-list">
+            <button
+              class="option-btn"
+              onclick="selectOption('question2', 'push-pull-legs', this)"
+            >
+              <span>Push / Pull / Legs</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question2', 'upper-lower', this)"
+            >
+              <span>Upper Body / Lower Body</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question2', 'full-body', this)"
+            >
+              <span>Full Body</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question2', 'not-sure', this)"
+            >
+              <span>I'm not sure</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 3: Workout Frequency -->
+        <div
+          id="question3"
+          class="screen"
+        >
+          <h2 class="question-title">
+            How many days per week do you want to workout?
+          </h2>
+          <p class="question-subtitle">
+            Committing to an achievable goal supports consistent progress.
+          </p>
+          <div class="options-list">
+            <button
+              class="option-btn"
+              onclick="selectOption('question3', '2-days', this)"
+            >
+              <span>2 days</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question3', '3-days', this)"
+            >
+              <span>3 days</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question3', '4-days', this)"
+            >
+              <span>4 days</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question3', '5-days', this)"
+            >
+              <span>5 days</span>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question3', '6-days', this)"
+            >
+              <span>6 days</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 4: Coach Persona -->
+        <div
+          id="question4"
+          class="screen"
+        >
+          <h2 class="question-title">Choose Your Coach</h2>
+          <p class="question-subtitle">
+            Select the coaching style that motivates you best.
+          </p>
+          <div class="options-list">
+            <button
+              class="option-btn"
+              onclick="selectOption('question4', 'professional', this)"
+            >
+              <span class="option-icon">👔</span>
+              <div style="text-align: left">
+                <div
+                  style="font-size: 18px; font-weight: 600; margin-bottom: 5px"
+                >
+                  Professional
+                </div>
+                <div style="font-size: 14px; opacity: 0.7; font-weight: 400">
+                  Clear, technical guidance
+                </div>
+              </div>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question4', 'roasting', this)"
+            >
+              <span class="option-icon">🔥</span>
+              <div style="text-align: left">
+                <div
+                  style="font-size: 18px; font-weight: 600; margin-bottom: 5px"
+                >
+                  Roasting
+                </div>
+                <div style="font-size: 14px; opacity: 0.7; font-weight: 400">
+                  Tough love motivation
+                </div>
+              </div>
+            </button>
+            <button
+              class="option-btn"
+              onclick="selectOption('question4', 'supportive', this)"
+            >
+              <span class="option-icon">🤗</span>
+              <div style="text-align: left">
+                <div
+                  style="font-size: 18px; font-weight: 600; margin-bottom: 5px"
+                >
+                  Supportive
+                </div>
+                <div style="font-size: 14px; opacity: 0.7; font-weight: 400">
+                  Encouraging & friendly
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Signup Form (after questions) -->
+        <div
+          id="signupForm"
+          class="screen"
+        >
+          <div class="logo">HOLOCOACH</div>
+          <h2 class="question-title">Create your account</h2>
+          <p class="question-subtitle">Let's get you started!</p>
+          <div class="form-container active">
+            <div class="input-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                id="signupName"
+                placeholder="John Doe"
+              />
+            </div>
+            <div class="input-group">
+              <label>Email</label>
+              <input
+                type="email"
+                id="signupEmail"
+                placeholder="your@email.com"
+              />
+            </div>
+            <div class="input-group">
+              <label>Password</label>
+              <input
+                type="password"
+                id="signupPassword"
+                placeholder="Create a password"
+              />
+            </div>
+            <div class="input-group">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                id="signupConfirmPassword"
+                placeholder="Confirm your password"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="buttons"
+        id="buttonContainer"
+      >
+        <button
+          class="btn btn-primary"
+          id="primaryBtn"
+          onclick="handlePrimaryAction()"
+        >
+          START
+        </button>
+        <button
+          class="btn btn-secondary"
+          id="secondaryBtn"
+          onclick="showLogin()"
+        >
+          Log In
+        </button>
+
+        <div
+          class="divider"
+          id="dividerSection"
+        >
+          <div class="divider-line"></div>
+          <span>or continue with</span>
+          <div class="divider-line"></div>
+        </div>
+
+        <div
+          class="social-buttons"
+          id="socialButtons"
+        >
+          <button
+            class="btn-social"
+            onclick="handleSocialLogin('google')"
+          >
+            Google
+          </button>
+          <button
+            class="btn-social"
+            onclick="handleSocialLogin('apple')"
+          >
+            Apple
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

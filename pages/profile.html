@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>HoloCoach - Profile</title>
+    <link
+      rel="stylesheet"
+      href="../css/pages/profile.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../css/index.css"
+    />
+    <script
+      src="../js/pages/profile.js"
+      defer
+    ></script>
+    <script
+      src="../js/main.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header-title">Profile</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Profile Card -->
+      <div class="profile-card">
+        <div class="profile-avatar">
+          <svg
+            class="avatar-icon"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+            />
+          </svg>
+        </div>
+        <div class="profile-info">
+          <h2
+            class="profile-name"
+            id="profileName"
+          >
+            Alex Johnson
+          </h2>
+          <p class="profile-member">Member since Oct 2025</p>
+        </div>
+      </div>
+
+      <!-- Fitness Goals Section -->
+      <section class="settings-section">
+        <div class="section-header">
+          <svg
+            class="section-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <h3 class="section-title">Fitness Goals</h3>
+        </div>
+        <p class="section-subtitle">Select your primary fitness goals</p>
+
+        <div class="options-grid">
+          <button
+            class="option-card"
+            data-goal="gain-muscle"
+            onclick="toggleGoal(this)"
+          >
+            <span class="option-emoji">💪</span>
+            <span class="option-text">Gain Muscle</span>
+          </button>
+          <button
+            class="option-card"
+            data-goal="lose-weight"
+            onclick="toggleGoal(this)"
+          >
+            <span class="option-emoji">⚖️</span>
+            <span class="option-text">Lose Weight</span>
+          </button>
+          <button
+            class="option-card"
+            data-goal="improve-endurance"
+            onclick="toggleGoal(this)"
+          >
+            <span class="option-emoji">🏃</span>
+            <span class="option-text">Improve Endurance</span>
+          </button>
+          <button
+            class="option-card"
+            data-goal="lose-fat-gain-muscle"
+            onclick="toggleGoal(this)"
+          >
+            <span class="option-emoji">🔥</span>
+            <span class="option-text">Lose Fat & Gain Muscle</span>
+          </button>
+          <button
+            class="option-card"
+            data-goal="flexibility"
+            onclick="toggleGoal(this)"
+          >
+            <span class="option-emoji">🤸</span>
+            <span class="option-text">Flexibility</span>
+          </button>
+          <button
+            class="option-card"
+            data-goal="general-health"
+            onclick="toggleGoal(this)"
+          >
+            <span class="option-emoji">❤️</span>
+            <span class="option-text">General Health</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Fitness Level Section -->
+      <section class="settings-section">
+        <div class="section-header">
+          <svg
+            class="section-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          <h3 class="section-title">Fitness Level</h3>
+        </div>
+
+        <div class="options-row">
+          <button
+            class="option-pill"
+            data-level="beginner"
+            onclick="selectLevel(this)"
+          >
+            Beginner
+          </button>
+          <button
+            class="option-pill"
+            data-level="intermediate"
+            onclick="selectLevel(this)"
+          >
+            Intermediate
+          </button>
+          <button
+            class="option-pill"
+            data-level="advanced"
+            onclick="selectLevel(this)"
+          >
+            Advanced
+          </button>
+        </div>
+      </section>
+
+      <!-- Workout Duration Section -->
+      <section class="settings-section">
+        <div class="section-header">
+          <svg
+            class="section-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <h3 class="section-title">Preferred Workout Duration</h3>
+        </div>
+
+        <div class="options-row">
+          <button
+            class="option-pill"
+            data-duration="15"
+            onclick="selectDuration(this)"
+          >
+            <span class="pill-number">15</span>
+            <span class="pill-label">min</span>
+          </button>
+          <button
+            class="option-pill"
+            data-duration="30"
+            onclick="selectDuration(this)"
+          >
+            <span class="pill-number">30</span>
+            <span class="pill-label">min</span>
+          </button>
+          <button
+            class="option-pill"
+            data-duration="45"
+            onclick="selectDuration(this)"
+          >
+            <span class="pill-number">45</span>
+            <span class="pill-label">min</span>
+          </button>
+          <button
+            class="option-pill"
+            data-duration="60"
+            onclick="selectDuration(this)"
+          >
+            <span class="pill-number">60</span>
+            <span class="pill-label">min</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Workout Days Section -->
+      <section class="settings-section">
+        <div class="section-header">
+          <svg
+            class="section-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <h3 class="section-title">Workout Frequency</h3>
+        </div>
+        <p class="section-subtitle">Days per week</p>
+
+        <div class="options-row">
+          <button
+            class="option-pill"
+            data-days="2"
+            onclick="selectDays(this)"
+          >
+            2 days
+          </button>
+          <button
+            class="option-pill"
+            data-days="3"
+            onclick="selectDays(this)"
+          >
+            3 days
+          </button>
+          <button
+            class="option-pill"
+            data-days="4"
+            onclick="selectDays(this)"
+          >
+            4 days
+          </button>
+          <button
+            class="option-pill"
+            data-days="5"
+            onclick="selectDays(this)"
+          >
+            5 days
+          </button>
+          <button
+            class="option-pill"
+            data-days="6"
+            onclick="selectDays(this)"
+          >
+            6 days
+          </button>
+        </div>
+      </section>
+
+      <!-- Coach Section -->
+      <section class="settings-section">
+        <div class="section-header">
+          <svg
+            class="section-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            />
+          </svg>
+          <h3 class="section-title">Choose Your Coach</h3>
+        </div>
+
+        <div class="persona-list">
+          <button
+            class="persona-card"
+            data-persona="professional"
+            onclick="selectPersona(this)"
+          >
+            <span class="persona-emoji">💼</span>
+            <div class="persona-info">
+              <div class="persona-name">Professional</div>
+              <div class="persona-desc">Clear, technical guidance</div>
+            </div>
+            <svg
+              class="persona-check"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </button>
+
+          <button
+            class="persona-card"
+            data-persona="roasting"
+            onclick="selectPersona(this)"
+          >
+            <span class="persona-emoji">🔥</span>
+            <div class="persona-info">
+              <div class="persona-name">Roasting</div>
+              <div class="persona-desc">Tough love motivation</div>
+            </div>
+            <svg
+              class="persona-check"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </button>
+
+          <button
+            class="persona-card"
+            data-persona="supportive"
+            onclick="selectPersona(this)"
+          >
+            <span class="persona-emoji">🤗</span>
+            <div class="persona-info">
+              <div class="persona-name">Supportive</div>
+              <div class="persona-desc">Encouraging & friendly</div>
+            </div>
+            <svg
+              class="persona-check"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Save Button -->
+      <button
+        class="btn-save"
+        onclick="saveProfile()"
+      >
+        Save Profile Settings
+      </button>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button
+        class="nav-btn"
+        onclick="navigateTo('home')"
+      >
+        <svg
+          class="nav-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+          />
+        </svg>
+        <span class="nav-label">Home</span>
+      </button>
+
+      <button
+        class="nav-btn"
+        onclick="navigateTo('workout')"
+      >
+        <svg
+          class="nav-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span class="nav-label">Workout</span>
+      </button>
+
+      <button
+        class="nav-btn"
+        onclick="navigateTo('community')"
+      >
+        <svg
+          class="nav-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+          />
+        </svg>
+        <span class="nav-label">Community</span>
+      </button>
+
+      <button
+        class="nav-btn active"
+        onclick="navigateTo('profile')"
+      >
+        <svg
+          class="nav-icon"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+        <span class="nav-label">Profile</span>
+      </button>
+    </nav>
+  </body>
+</html>
