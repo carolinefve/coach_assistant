@@ -57,6 +57,8 @@ The backend manages AI interactions and stores data to create a **personalised a
 ✅ Developed a structured conversation system that adapts to user input  
 ✅ Learned how to integrate AI technology into an everyday wellness experience
 
+## 📷 Demo
+
 ## 🚀 Next Steps
 
 ### Short Term
