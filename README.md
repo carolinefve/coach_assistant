@@ -59,6 +59,13 @@ The backend manages AI interactions and stores data to create a **personalised a
 
 ## 📷 Demo
 
+
+
+https://github.com/user-attachments/assets/473e6d6f-265c-4e6f-8bea-10f7331224aa
+
+
+
+
 ## 🚀 Next Steps
 
 ### Short Term
