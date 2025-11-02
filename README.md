@@ -2,9 +2,9 @@
 
  <div align="center"> 
 
-<img width="250" height="600" alt="Winner Banner" src="https://github.com/user-attachments/assets/d22f218f-a64a-4eb4-83ca-76b4320a0fa2" />
+<img width="200"  alt="Winner Banner" src="https://github.com/user-attachments/assets/d22f218f-a64a-4eb4-83ca-76b4320a0fa2" />
 
-<img width="720" alt="Fitness Presentation" src="https://github.com/user-attachments/assets/99c116a6-a226-4ddd-ad69-5d57d969d2b5" />
+<img width="575" alt="Fitness Presentation" src="https://github.com/user-attachments/assets/99c116a6-a226-4ddd-ad69-5d57d969d2b5" />
 
 </div>
 
