@@ -1,13 +1,20 @@
 # 🏋️‍♀️ Team Silvera Your Digital Fitness Coach
 
+ <div align="center"> 
+
+<img width="250" height="600" alt="Winner Banner" src="https://github.com/user-attachments/assets/d22f218f-a64a-4eb4-83ca-76b4320a0fa2" />
+
+<img width="720" alt="Fitness Presentation" src="https://github.com/user-attachments/assets/99c116a6-a226-4ddd-ad69-5d57d969d2b5" />
+
+</div>
+
+
+
 ## 💡 Introduction
 
 The project is a web-based app featuring **AI-powered digital coaches** designed to provide **personalised and conversational workout guidance**. The app creates a seamless experience where your digital coach talks with you, explains exercises, counts repetitions, adjusts difficulty, and keeps you motivated throughout your workout.
 
 Silvera is perfect for anyone who wants professional coaching but may not have access to in-person trainers, whether you’re travelling, exercising from home, or simply prefer flexibility.
-
-> 🎯 **Elevator Pitch:**  
-> Silvera combines the power of AI and personalised fitness to create digital coaches that guide, motivate, and adapt to your needs, giving everyone access to a professional fitness experience at any time and anywhere.
 
 ## 🧩 Framing the Problem
 
